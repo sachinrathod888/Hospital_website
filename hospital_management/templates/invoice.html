@@ -1,0 +1,140 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Bootstrap icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+  <title>Invoice</title>
+</head>
+<body>
+<div class="card">
+	<div class="card-body">
+	  <div class="container mb-5 mt-3">
+		<div class="row d-flex align-items-baseline">
+		  <div class="col-xl-9">
+			<p style="color: #7e8d9f;font-size: 20px;">Hospiria Invoice >> <strong>ID:{{patient.id}}</strong></p>
+		  </div>
+		  <div class="col-xl-3 float-end">
+			<a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark" href="{% url 'render_pdf' patient.id %}"><i
+				class="fas fa-print text-primary"></i> Print</a>
+			
+		  </div>
+		  <hr>
+		</div>
+  
+		<div class="container">
+		  <div class="col-md-12">
+			<div class="text-center">
+			  <i class="fab fa-mdb fa-4x ms-0" style="color:#5d9fc5 ;"></i>
+			  <p class="pt-0"><h5>Hospiria</h5></p>
+			</div>
+  
+		  </div>
+  
+  
+		  <div class="row">
+			<div class="col-xl-8">
+			  <ul class="list-unstyled">
+				<li class="text-muted">Patient Name: <span style="color:#5d9fc5 ;">{{patient.Patient_name}}</span></li>
+				<li class="text-muted">Address: {{patient.address}}</li>
+				<li class="text-muted"><i class="fas fa-phone"></i>Mobile: {{patient.mobile}}</li>
+				<li class="text-muted"><i class="fas fa-phone"></i>Symptoms: {{patient.complaint}}</li>
+			  </ul>
+			</div>
+			<div class="col-xl-4">
+
+			  <ul class="list-unstyled">
+					<li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+						class="fw-bold">Patient Id:</span>{{patient.id}}</li>
+				<li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+					class="fw-bold">Creation Date: </span>{{patient.updated_at}}</li>
+				
+			  </ul>
+			</div>
+		  </div>
+  
+		  <div class="row my-2 mx-1 justify-content-center">
+			<table class="table table-striped table-borderless">
+			  <thead style="background-color:#84B0CA ;" class="text-white">
+				<tr>
+				  <!-- <th scope="col">No</th> -->
+				  <th scope="col">Description</th>
+				  <th scope="col">Units</th>
+				  <th scope="col">Duration</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <!-- <th scope="row">1</th> -->
+				  <td>{{patient.medicine_name1}}</td>
+				  <td>{{patient.medicine_units1}}</td>
+				  <td>{{patient.medicine_detail1}}</td>
+				  
+				</tr>
+				<tr>
+				  <!-- <th scope="row">2</th> -->
+				  <td>{{patient.medicine_name2}}</td>
+				  <td>{{patient.medicine_units2}}</td>
+				  <td>{{patient.medicine_detail2}}</td>
+				</tr>
+				<tr>
+				  <!-- <th scope="row">3</th> -->
+				  <td>{{patient.medicine_name3}}</td>
+				  <td>{{patient.medicine_units3}}</td>
+				  <td>{{patient.medicin_detail3}}</td>
+				</tr>
+				<tr>
+					<!-- <th scope="row">4</th> -->
+					<td>{{patient.medicine_name4}}</td>
+					<td>{{patient.medicine_units4}}</td>
+					<td>{{patient.medicine_detail4}}</td>
+				  </tr>
+				  <tr>
+					<!-- <th scope="row">5</th> -->
+					<td>{{patient.medicine_name5}}</td>
+					<td>{{patient.medicine_units5}}</td>
+					<td>{{patient.medicine_detail5}}</td>
+				  </tr>
+			  </tbody>
+  
+			</table>
+		  </div>
+		  <div class="row">
+			<div class="col-xl-8">
+			  <p class="ms-3">Take this invoice on the next visit to the Hospital</p>
+  
+			</div>
+			<div class="col-xl-3">
+			  
+			  <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span
+				  style="font-size: 25px;">₹{{patient.total_bill}}</span></p>
+			</div>
+			
+		  </div>
+		  <hr>
+		  <div class="row">
+			<div class="col-xl-10">
+			  <p>Thank you for visiting Hospiria</p>
+			</div>
+			
+		  </div>
+  
+		</div>
+	  </div>
+	</div>
+  </div>
+  </body>

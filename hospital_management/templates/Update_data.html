@@ -1,0 +1,172 @@
+{% include 'header.html' %}
+
+<div class="container-fluid mt-2">
+    <div class="row">
+
+        
+        <div class="container">
+            <div class="row m-lg-5">
+                
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header text-light" style="background-color:green">
+                            <h4 class="card-title"> pateint information</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class=" col-md-6 mb-3">
+                                            <label class="form-label">Enter Your Full Name</label>
+                                            <input name="patient_name" type="text" placeholder="name" 
+                                                class="form-control" value="{{patient.Patient_name}}">
+                                        </div>
+
+                                        <div class=" col-md-3 mb-3">
+                                            <label class="form-label">Age</label>
+                                            <input name="age" type="number" placeholder="age" class="form-control" value="{{patient.age}}">
+                                        </div>
+                                        <div class="col-md-3 mb-3 mt-0">
+                                            <label class="form-label"  >Gender</label>
+                                            <select class="form-select" name="gender"
+                                                arial-label="Default select example"  required>
+                                                <option value="{{patient.gender}}">{{patient.gender}}</option>
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                        </div>
+                                        <div class=" col-md-6 mb-3">
+                                            <label class="form-label">mail id </label>
+                                            <input name="email" type="email" placeholder="Email" class="form-control" value="{{patient.email}}">
+                                        </div>
+                                        <div class=" col-md-6 mb-3">
+                                            <label class="form-label">phone number </label>
+                                            <input name="mobile" type="number" placeholder="mobile number"
+                                                class="form-control" value="{{patient.mobile}}">
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Address</label>
+                                <input name="address" type="text" placeholder="address" class="form-control" value="{{patient.address}}">
+                            </div>
+                            <div class="row">
+                                <div class=" col-md-12 mb-3">
+                                    <h5>symptom</h5>
+                                    <div class="mb-3">
+                                        <textarea class="form-control" id="message" 
+                                            name="complaint" placeholder="{{patient.complaint}}"
+                                            style="height: 5rem" data-sb-validations="required"></textarea>
+                                        <div class="invalid-feedback" data-sb-feedback="message:required" value="{{patient.complaint}}">A message is
+                                            required.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5>Examination</h5>
+                            <div class="row">
+                                <div class=" col-md-3 mb-3">
+                                    <label class="form-lable">pulse </label>
+                                    <input name="pulse"  type="text" placeholder="pulse rate" class="form-control" pattern="[0-9]+" value="{{patient.pulse}}">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-lable">BP </label>
+                                    <input name="bp"  type="text" placeholder="BP" class="form-control" value="{{patient.bp}}">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-lable">BSL </label>
+                                    <input name="bsl" type="text" placeholder="BSL" class="form-control" value="{{patient.bsl}}">
+                                </div>
+
+                                <div class="col-md-3 mb-3">
+                                    <label class="form-lable">Temperature </label>
+                                    <input name="temprature" type="text" placeholder="Temp" class="form-control" value="{{patient.temprature}}">
+                                </div>
+                                
+                                <div class="row">
+                                    <div class=" col-md-12 mb-3">
+                                        <h5>General Exam</h5>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" id="message" 
+                                                name="general_exam" placeholder="{{patient.general_exam}}"
+                                                style="height: 5rem" data-sb-validations="required"></textarea>
+                                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is
+                                                required.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+
+                                    <h6>Treatment</h6>
+                                    <div class="col-md-2 mb-3 mt-0">
+                                        <label class="form-lable">Medicine Type</label>
+                                        <select class="form-select" name="medicin_type" value="{{patient.medicin_type}}"
+                                            arial-label="Default select example">
+                                            <option value="">Select</option>
+                                            <option value="syrup">Syrup</option>
+                                            <option value="injection">Injection</option>
+                                            <option value="tablet">Tablet</option>
+                                            
+
+                                        </select>
+                                    </div>
+
+
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-lable">Name </label>
+                                        <input name="medicin_name" type="text" placeholder="name" class="form-control">
+                                    </div>
+                                    <div class="col-md-1 mb-3">
+                                        <label class="form-lable">Units </label>
+                                        <input name="unit" type="text" placeholder="" class="form-control">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-lable">Details </label>
+                                        <input name="medicine" type="text" placeholder="duration" class="form-control">
+                                    </div>
+                                    
+                                </div>
+                                
+                                
+                                
+
+                            </div>
+                            <div class="row">
+                                <div class=" col-md-12 mb-3">
+                                    <div class="form-label">
+                                        <h5>Other Information</h5>
+                                    <div class="mb-3">
+                                        <textarea class="form-control" id="message"
+                                            name="other_info" placeholder="{{patient.other_information}}"
+                                            style="height: 3rem" data-sb-validations="required" ></textarea>
+                                        <div class="invalid-feedback" data-sb-feedback="message:required" >A message is
+                                            required.</div>
+                                    </div>
+                                    <div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-lable"><h5>Total Bill</h5> </label>
+                                            <input name="total_amount" type="number" placeholder="₹ Enter Amount" class="form-control">
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div>
+                                        <button class="button btn-primary" type="submit">submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </from>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
